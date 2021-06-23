@@ -1,0 +1,58 @@
+@import '../styles/variables.scss';
+
+.container {
+  text-align: center;
+  background-color: $base-color;
+}
+
+.logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  p {
+    color: $dark-green-color;
+  }
+}
+
+.browse {
+  border: 1px solid $dark-green-color;
+  background-color: $dark-green-color;
+  border-radius: 12px;
+  color: $light-orange-color;
+  padding: 0 100px;
+  text-align: center;
+  margin: 1rem 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $light-green-color;
+    color: $light-orange-color;
+    border-color: $dark-orange-color;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-float infinite 3s ease-in-out;
+  }
+}
+
+@keyframes logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
