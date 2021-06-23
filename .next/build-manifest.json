@@ -24,6 +24,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/inhabitant-detail/[id]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/inhabitant-detail/[id].js"
+    ],
     "/inhabitants": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

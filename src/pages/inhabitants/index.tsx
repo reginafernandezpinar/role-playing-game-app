@@ -1,20 +1,28 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import {
+  selectInhabitants,
+  setInhabitants,
+} from "../../app/slices/inhabitants-slice";
 
-import { fetchInhabitantList } from "../../tools/api";
-import { Inhabitant } from "../../types/inhabitant";
+import { fetchInhabitantData } from "../../tools/api";
 import InhabitantList from "../../components/inhabitant-list";
 
 import styles from "./inhabitants.module.scss";
 
 const InhabitantsPage = () => {
-  const [inhabitants, setInhabitants] = useState<Array<Inhabitant>>([]);
+  const dispatch = useAppDispatch();
+  const { data: inhabitants, loading } = useAppSelector(selectInhabitants);
 
   useEffect(() => {
-    fetchInhabitantList()
-      .then(({ data: { Brastlewark } }) => setInhabitants(Brastlewark))
-      .catch(error => {
-        console.log("error", error);
-      });
+    !inhabitants.length &&
+      fetchInhabitantData()
+        .then(({ data: { Brastlewark } }) =>
+          dispatch(setInhabitants(Brastlewark))
+        )
+        .catch(error => {
+          console.log("error", error);
+        });
   }, []);
 
   return (
@@ -23,7 +31,7 @@ const InhabitantsPage = () => {
       <p className={styles.description}>
         Retrieve info from this habitants....
       </p>
-      <InhabitantList inhabitants={inhabitants} />
+      {loading ? "loading" : <InhabitantList inhabitants={inhabitants} />}
     </main>
   );
 };
