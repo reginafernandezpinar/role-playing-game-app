@@ -1,0 +1,47 @@
+@import '../../styles/variables.scss';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  width: 0px;
+  min-width: 250px;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 200px;
+  flex-basis: 30%;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: $dark-green-color;
+  background-color: $light-orange-color;
+  border: 1px solid $light-orange-color;
+  border-radius: 10px;
+
+  .card-title {
+    display: flex;
+    max-width: 100%;
+    padding: 0px 10px;
+
+    h3 {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  &:hover {
+    border-color: $dark-orange-color;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 252, 156, 0.399), 0 4px 8px rgba(238, 255, 81, 0.187);
+  }
+
+  .image-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}

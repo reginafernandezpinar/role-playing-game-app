@@ -1,27 +1,46 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .main {
-  padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: $base-color;
+  min-height: 100%;
+
+  .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+  }
+
+  .title,
+  .description {
+    text-align: center;
+  }
+
+  .description {
+    line-height: 1.5;
+    font-size: 1.25rem;
+  }
+
+  .nofound {
+    margin-top: 4rem;
+    color: $dark-orange-color;
+  }
+
+  .bar {
+    width: 20rem;
+    background: $light-orange-color;
+    border: none;
+    padding: 0.5rem;
+  }
 }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  line-height: 1.5;
-  font-size: 1.25rem;
+@media (max-width: 600px) {
+  .main {
+    .title {
+      font-size: 3rem;
+    }
+  }
 }

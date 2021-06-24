@@ -1,25 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 
-import { useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Inhabitant } from "../../types/inhabitant";
-import { selectInhabitants } from "../../app/slices/inhabitants-slice";
+import {
+  selectSelectedInhabitant,
+  setSelectedID,
+} from "../../app/slices/inhabitants-slice";
+
+import Layout from "../../components/layout";
 
 import styles from "./inhabitant-detail.module.scss";
 
-const InhabitantDetail = () => {
-  const { query: { id } } = useRouter();
-  const { data: inhabitants, loading } = useAppSelector(selectInhabitants);
-  const [inhabitant, setInhabitant] = useState<Inhabitant>(null);
+const InhabitantDetailPage = () => {
+  const {
+    query: { id },
+  } = useRouter();
+
+  const dispatch = useAppDispatch();
+  const inhabitant = useAppSelector(selectSelectedInhabitant); 
 
   useEffect(() => {
-    console.log('🚀 ~ file: [id].tsx ~ line 16 ~ useEffect ~ inhabitants', inhabitants);
-    console.log('🚀 ~ file: [id].tsx ~ line 16 ~ useEffect ~ id', id);
+    dispatch(setSelectedID(Number(id)));
   }, [id]);
 
   return (
-    <>
+    <Layout loadInhabitants={true}>
       <h2>
         <Link href="/inhabitants">
           <a>
@@ -27,14 +35,32 @@ const InhabitantDetail = () => {
           </a>
         </Link>
       </h2>
-      <div className={styles.container}>
-        <h1>{inhabitant?.name}</h1>
-        <div>
-          {/* <InhabitantCard inhabitantDetails={inhabitant} /> */}
+      {inhabitant && (
+        <div className={styles.container}>
+          <h1>{inhabitant.name}</h1>
+          <div className={styles["features-container"]}>
+            <div className={styles.features}>
+              <span>Age: {inhabitant.age}</span>
+              <span>Height: {inhabitant.height}</span>
+              <span>Weight: {inhabitant.weight}</span>
+              <span>Hair color: {inhabitant.hair_color}</span>
+              <span>Professions: {inhabitant.professions.join(',')}</span>
+              <span>Friends: {inhabitant.friends.join(',')}</span>
+            </div>
+            <div className={styles["image-container"]}>
+              <Image
+                src={inhabitant.thumbnail}
+                alt={`Picture of ${name} inhabitant`}
+                layout={"fill"}
+                objectFit={"cover"}
+                objectPosition={"center"}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </>
+      )}
+    </Layout>
   );
 };
 
-export default InhabitantDetail;
+export default InhabitantDetailPage;
