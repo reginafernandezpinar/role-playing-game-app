@@ -27,18 +27,20 @@ const InhabitantsPage = () => {
     <Layout loadInhabitants={true}>
       <div className={styles['main-container']}>
         <h1 className={styles.title}>Brastlewark people</h1>
-        <p className={styles.description}>Retrieve info from this habitants</p>
+        <p className={styles.description}>Find inhabitants from Brastlewark</p>
         <input
-          className={styles.bar}
-          placeholder={"search habitant"}
+          className={styles.search}
+          placeholder={"search inhabitant"}
           onChange={handleOnChange}
         />
         {search && !inhabitants.length && (
-          <p className={`${styles.description} ${styles.nofound}`}>
-            Sorry, we couldn´t find any habitant with this name
+          <p className={`${styles.description} ${styles['not-found']}`}>
+            {`Sorry, we couldn't find any habitant with this name`}
           </p>
         )}
-        {loading ? <Loading /> : <InhabitantList inhabitants={inhabitants} />}
+        <div className={styles['list-container']}>
+          {loading ? <Loading /> : <InhabitantList inhabitants={inhabitants} />}
+        </div>
       </div>
     </Layout>
   );

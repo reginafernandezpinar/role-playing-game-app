@@ -1,11 +1,11 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .layout {
   height: 100vh;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  background-image: url("/background.jpeg");
+  background-image: url('/background.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

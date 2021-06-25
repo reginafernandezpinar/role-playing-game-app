@@ -13,10 +13,10 @@ const IndexPage: NextPage = () => {
         <div className={styles.banner}>
           <img src="/logo.png" alt="logo" className={styles.logo} />
           <p>Welcome to Brastlewark</p>
-          <p>Here you can browse the inhabitants details</p>
+          <p>{`Here you can browse the inhabitants' details`}</p>
           <Link href={"/inhabitants"}>
             <a className={styles.browse}>
-              <h3>Browse</h3>
+              <h3>Explore</h3>
             </a>
           </Link>
         </div>

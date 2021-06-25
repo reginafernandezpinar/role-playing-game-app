@@ -6,11 +6,11 @@
   flex-direction: column;
   align-items: center;
   min-height: 100%;
+  color: $base-color;
 
   .title {
     margin: 0;
     line-height: 1.15;
-    font-size: 4rem;
   }
 
   .title,
@@ -20,7 +20,6 @@
 
   .description {
     line-height: 1.5;
-    font-size: 1.25rem;
   }
 
   .nofound {
@@ -28,18 +27,42 @@
     color: $dark-orange-color;
   }
 
-  .bar {
-    width: 20rem;
-    background: $light-orange-color;
+  .search {
+    background: $base-color;
     border: none;
+    border-radius: 5px;
     padding: 0.5rem;
+  }
+
+  .list-container {
+    margin-top: 2rem;
+    max-height: 70vh;
+    overflow: auto;
   }
 }
 
 @media (max-width: 600px) {
-  .main {
+  .main-container {
     .title {
-      font-size: 3rem;
+      margin-top: 2rem;
+      font-size: 2rem;
+    }
+    .description {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .main-container {
+    .title {
+      font-size: 4rem;
+    }
+    .description {
+      font-size: 1.25rem;
+    }
+    .search {
+      width: 20rem;
     }
   }
 }

@@ -15,14 +15,17 @@
   padding: 1.5rem 1rem;
   text-align: center;
   color: $dark-green-color;
-  background-color: $light-orange-color;
+  background-color: rgb(black, 0.8);
   border: 1px solid $light-orange-color;
   border-radius: 10px;
+  transition: all;
+  transition-duration: 0.5s;
 
   .card-title {
     display: flex;
     max-width: 100%;
     padding: 0px 10px;
+    color: $light-orange-color;
 
     h3 {
       text-overflow: ellipsis;
@@ -34,7 +37,7 @@
   &:hover {
     border-color: $dark-orange-color;
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(255, 252, 156, 0.399), 0 4px 8px rgba(238, 255, 81, 0.187);
+    box-shadow: 0 10px 20px rgba($dark-orange-color, 0.399), 0 4px 8px rgba(238, 255, 81, 0.187);
   }
 
   .image-container {
