@@ -13,15 +13,10 @@
     justify-content: center;
     text-align: center;
     font-size: calc(10px + 2vmin);
-    max-width: 50%;
     padding:40px;
     background-color:rgba(38, 33, 29, 0.5);
     border: solid $light-orange-color 1px;
     border-radius: 50px;
-  
-    .logo {
-      height: 30vh;
-    }
   
     p {
       color: $base-color;
@@ -36,7 +31,8 @@
       background-color: $dark-green-color;
       border-radius: 12px;
       color: $light-orange-color;
-      padding: 0 100px;
+      width: 100%;
+      max-width: 25rem;
       text-align: center;
       margin: 1rem 0;
       cursor: pointer;
@@ -52,6 +48,26 @@
 @media (prefers-reduced-motion: no-preference) {
   .logo {
     animation: logo-float infinite 3s ease-in-out;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner {
+    max-width: 90%;
+
+    .logo {
+      height: 10vh;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .banner {
+    max-width: 50%;
+
+    .logo {
+      height: 30vh;
+    }
   }
 }
 
