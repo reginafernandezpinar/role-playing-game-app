@@ -17,15 +17,15 @@ const Layout = ({ children, loadInhabitants }: LayoutProps) => {
   const { data: inhabitants } = useAppSelector(selectInhabitants);
 
   useEffect(() => {
-    loadInhabitants &&
-      !inhabitants.length &&
+    if (loadInhabitants && !inhabitants.length ) {
       fetchInhabitantData()
-        .then(({ data: { Brastlewark } }) =>
-          dispatch(setInhabitants(Brastlewark))
-        )
-        .catch((error) => {
-          console.log("error", error);
-        });
+      .then(({ data: { Brastlewark } }) =>
+        dispatch(setInhabitants(Brastlewark))
+      )
+      .catch((error) => {
+        console.log("error", error);
+      });
+    }  
   }, []);
 
   return (
@@ -41,8 +41,8 @@ const Layout = ({ children, loadInhabitants }: LayoutProps) => {
           </a>
         </Link>
       </nav>
-      <div className={styles.container}>{children}</div>
-      <footer className={styles.footer}>
+      <main className={styles.container}>{children}</main>
+      {/* <footer className={styles.footer}>
         <a
           className={styles["footer-logo"]}
           href="./"
@@ -51,7 +51,7 @@ const Layout = ({ children, loadInhabitants }: LayoutProps) => {
         >
           FOOTER
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 };

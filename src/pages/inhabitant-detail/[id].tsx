@@ -6,11 +6,13 @@ import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Inhabitant } from "../../types/inhabitant";
 import {
+  selectInhabitants,
   selectSelectedInhabitant,
   setSelectedID,
 } from "../../app/slices/inhabitants-slice";
 
 import Layout from "../../components/layout";
+import Loading from "../../components/loading";
 
 import styles from "./inhabitant-detail.module.scss";
 
@@ -20,7 +22,8 @@ const InhabitantDetailPage = () => {
   } = useRouter();
 
   const dispatch = useAppDispatch();
-  const inhabitant = useAppSelector(selectSelectedInhabitant); 
+  const inhabitant = useAppSelector(selectSelectedInhabitant);
+  const { loading } = useAppSelector(selectInhabitants);
 
   useEffect(() => {
     dispatch(setSelectedID(Number(id)));
@@ -35,7 +38,8 @@ const InhabitantDetailPage = () => {
           </a>
         </Link>
       </h2>
-      {inhabitant && (
+      {loading && <Loading /> }
+      {!loading && inhabitant && (
         <div className={styles.container}>
           <h1>{inhabitant.name}</h1>
           <div className={styles["features-container"]}>

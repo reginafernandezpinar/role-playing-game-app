@@ -25,7 +25,7 @@ const InhabitantsPage = () => {
 
   return (
     <Layout loadInhabitants={true}>
-      <main className={styles.main}>
+      <div className={styles['main-container']}>
         <h1 className={styles.title}>Brastlewark people</h1>
         <p className={styles.description}>Retrieve info from this habitants</p>
         <input
@@ -39,7 +39,7 @@ const InhabitantsPage = () => {
           </p>
         )}
         {loading ? <Loading /> : <InhabitantList inhabitants={inhabitants} />}
-      </main>
+      </div>
     </Layout>
   );
 };

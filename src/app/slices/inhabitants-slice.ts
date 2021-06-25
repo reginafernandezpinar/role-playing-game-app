@@ -11,7 +11,7 @@ export interface InhabitantsState {
 
 const initialState: InhabitantsState = {
   data: [],
-  loading: false,
+  loading: true,
   selectedID: null,
   search: null,
 };
@@ -22,6 +22,7 @@ export const inhabitantsSlice = createSlice({
   reducers: {
     setInhabitants: (state, action: PayloadAction<Array<Inhabitant>>) => {
       state.data = action.payload;
+      state.loading = false;
     },
     setSelectedID: (state, action: PayloadAction<number>) => {
       state.selectedID = action.payload;
