@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 import Layout from "../components/layout";
 
@@ -9,8 +10,8 @@ const IndexPage: NextPage = () => {
   return (
     <Layout>
       <div className={styles.container}>
-        <header className={styles.header}>
-          <img src="/logo.png" className={styles.logo} alt="logo" />
+        <div className={styles.banner}>
+          <img src="/logo.png" alt="logo" className={styles.logo} />
           <p>Welcome to Brastlewark</p>
           <p>Here you can browse the inhabitants details</p>
           <Link href={"/inhabitants"}>
@@ -18,7 +19,7 @@ const IndexPage: NextPage = () => {
               <h3>Browse</h3>
             </a>
           </Link>
-        </header>
+        </div>
       </div>
     </Layout>
   );

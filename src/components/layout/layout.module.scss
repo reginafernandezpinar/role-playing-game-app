@@ -1,23 +1,33 @@
+@import "../../styles/variables.scss";
+
 .layout {
   height: 100vh;
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  background-image: url("/background.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  nav {
+    .logo {
+      display: flex;
+      align-items: center;
+      color: $base-color;
+
+      img {
+        height: 3rem;
+      }
+
+      .text {
+        margin-left: 0.5rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
 
   .container {
     height: 100%;
-  }
-
-  .footer {
-    width: 100%;
-    height: 50px;
-    border-top: 1px solid #eaeaea;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .footer-logo {
-      margin-left: 0.25rem;
-    }
   }
 }

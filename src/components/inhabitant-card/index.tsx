@@ -18,9 +18,9 @@ const InhabitanCard = ({ inhabitant }: InhabitantCardProps) => {
           <Image
             src={thumbnail}
             alt={`Picture of ${name} inhabitant`}
-            layout={"fill"}
-            objectFit={"cover"}
-            objectPosition={"center"}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
           />
         </div>
       </a>
