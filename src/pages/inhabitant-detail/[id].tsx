@@ -31,34 +31,50 @@ const InhabitantDetailPage = () => {
 
   return (
     <Layout loadInhabitants={true}>
-      <h2>
-        <Link href="/inhabitants">
-          <a>
-            <h3>&larr; Back to main list</h3>
-          </a>
-        </Link>
-      </h2>
-      {loading && <Loading /> }
+      <Link href="/inhabitants">
+        <a className={styles.back}>
+          <h2>&larr; Back to main list</h2>
+        </a>
+      </Link>
+      {loading && <Loading />}
       {!loading && inhabitant && (
         <div className={styles.container}>
-          <h1>{inhabitant.name}</h1>
-          <div className={styles["features-container"]}>
-            <div className={styles.features}>
-              <span>Age: {inhabitant.age}</span>
-              <span>Height: {inhabitant.height}</span>
-              <span>Weight: {inhabitant.weight}</span>
-              <span>Hair color: {inhabitant.hair_color}</span>
-              <span>Professions: {inhabitant.professions.join(',')}</span>
-              <span>Friends: {inhabitant.friends.join(',')}</span>
-            </div>
-            <div className={styles["image-container"]}>
-              <Image
-                src={inhabitant.thumbnail}
-                alt={`Picture of ${name} inhabitant`}
-                layout={"fill"}
-                objectFit={"cover"}
-                objectPosition={"center"}
-              />
+          <div className={styles.panel}>
+            <h1>{inhabitant.name}</h1>
+            <div className={styles["features-container"]}>
+              <div className={styles.features}>
+                <p>
+                  <strong>Age: </strong> {inhabitant.age}
+                </p>
+                <p>
+                  <strong>Height: </strong> {inhabitant.height}
+                </p>
+                <p>
+                  <strong>Weight: </strong>
+                  {inhabitant.weight}
+                </p>
+                <p>
+                  <strong>Hair color: </strong>
+                  {inhabitant.hair_color}
+                </p>
+                <p>
+                  <strong>Professions: </strong>
+                  {inhabitant.professions.join(", ")}
+                </p>
+                <p>
+                  <strong>Friends: </strong>
+                  {inhabitant.friends.join(", ")}
+                </p>
+              </div>
+              <div className={styles["image-container"]}>
+                <Image
+                  src={inhabitant.thumbnail}
+                  alt={`Picture of ${name} inhabitant`}
+                  layout={"fill"}
+                  objectFit={"cover"}
+                  objectPosition={"center"}
+                />
+              </div>
             </div>
           </div>
         </div>

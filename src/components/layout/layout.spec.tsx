@@ -33,7 +33,7 @@ const props: LayoutProps = {
   loadInhabitants: true,
 };
 
-describe('<Counter />', () => {
+describe('<Layout />', () => {
   it('renders the component', () => {
     const store = makeStore()
 
@@ -43,20 +43,6 @@ describe('<Counter />', () => {
       </Provider>
     )
 
-    expect(screen.getByText('Home')).toBeInTheDocument()
+    expect(screen.getByText('Brastlewark')).toBeInTheDocument()
   })
-
-  // it('browse inhabitants', () => {
-  //   const store = makeStore()
-
-  //   render(
-  //     <Provider store={store}>
-  //       <Layout {...props}/>
-  //     </Provider>
-  //   )
-
-  //   user.click(screen.getByRole('button', { name: /decrement value/i }))
-
-  //   expect(screen.getByText('-1')).toBeInTheDocument()
-  // })
 })
